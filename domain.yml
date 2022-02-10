@@ -1,0 +1,76 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- goodbye
+- type
+- transportation
+- destination
+- warm_season
+- greet
+- plan_trip
+- accomodation
+- cold_season
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+entities:
+- cold_months
+- lookup_accomodation
+- lookup_destination
+- lookup_transportation
+- lookup_type
+- type
+- warm_months
+responses:
+  utter_greet:
+  - text: Hey! My Name is TravIt and I am your trip-planning assistent. What would you like to do?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: See you soon!
+  utter_iamabot:
+  - text: I am a bot (made with Rasa)
+  utter_plan_trip:
+  - text: Sure! In the next steps I will be asking what trip it should be. What time of the year do you want to travel?
+  utter_warm_season_destination:
+  - text: So you like it warm, here we go. Where do you want to travel to?
+  utter_cold_season_destination:
+  - text: You want to cool down a bit? No problem. Where do you want to travel to?
+  utter_destination_transportation:
+  - text: Looking good. How do you want to travel?
+  utter_transportation_type:
+  - text: That's a great way to travel! What type of trip do you want to plan? E.g. city, beach, activity, ...
+  utter_type_accomodation:
+  - text: That sounds fun! Where do you want to house in?
+  utter_accomodation_end_planning:
+  - text: This truly is the best way to chill. That would be it. Do you allow me to create a todo-list for your trip?
+  utter_end_planning_permission_granted:
+  - text: Thanks, your list is ready in the To-Do-List section of the app!
+  utter_end_planning_permission_denied:
+  - text: Oh, too bad, maybe next time. Your information will be deleted.
+actions:
+- plan_trip_1
+- plan_trip_2
+- plan_trip_3
+- plan_trip_4
+- utter_accomodation_end_planning
+- utter_cold_season_destination
+- utter_destination_transportation
+- utter_end_planning_permission_denied
+- utter_end_planning_permission_granted
+- utter_goodbye
+- utter_greet
+- utter_plan_trip
+- utter_question_season
+- utter_transportation_type
+- utter_type_accomodation
+- utter_warm_season_destination

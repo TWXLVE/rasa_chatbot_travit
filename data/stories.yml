@@ -1,0 +1,2438 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_happy
+
+- story: sad path 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_happy
+
+- story: sad path 2
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: deny
+    - action: utter_goodbye
+
+- story: plan_trip_1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: plan_trip
+    - action: utter_plan_trip
+    - intent: warm_season
+    - action: utter_warm_season_destination
+    - intent: destination
+    - action: utter_destination_transportation
+    - intent: transportation
+    - action: utter_transportation_type
+    - intent: type
+    - action: utter_type_accomodation
+    - intent: accomodation
+    - action: utter_accomodation_end_planning
+    - intent: affirm
+    - action: utter_end_planning_permission_granted
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: plan_trip_2
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: plan_trip
+    - action: utter_plan_trip
+    - intent: warm_season
+    - action: utter_warm_season_destination
+    - intent: destination
+    - action: utter_destination_transportation
+    - intent: transportation
+    - action: utter_transportation_type
+    - intent: type
+    - action: utter_type_accomodation
+    - intent: accomodation
+    - action: utter_accomodation_end_planning
+    - intent: deny
+    - action: utter_end_planning_permission_denied
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: plan_trip_3
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: plan_trip
+    - action: utter_plan_trip
+    - intent: cold_season
+    - action: utter_cold_season_destination
+    - intent: destination
+    - action: utter_destination_transportation
+    - intent: transportation
+    - action: utter_transportation_type
+    - intent: type
+    - action: utter_type_accomodation
+    - intent: accomodation
+    - action: utter_accomodation_end_planning
+    - intent: affirm
+    - action: utter_end_planning_permission_granted
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: plan_trip_4
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: plan_trip
+    - action: utter_plan_trip
+    - intent: cold_season
+    - action: utter_cold_season_destination
+    - intent: destination
+    - action: utter_destination_transportation
+    - intent: transportation
+    - action: utter_transportation_type
+    - intent: type
+    - action: utter_type_accomodation
+    - intent: accomodation
+    - action: utter_accomodation_end_planning
+    - intent: deny
+    - action: utter_end_planning_permission_denied
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: cold_season
+    entities:
+    - cold_months: febuary
+    - cold_months: january
+    - cold_months: march
+    - cold_months: october
+    - cold_months: november
+    - cold_months: december
+  - action: utter_cold_season_destination
+  - intent: destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: deny
+  - action: utter_end_planning_permission_denied
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: cold_season
+    entities:
+    - cold_months: febuary
+    - cold_months: january
+    - cold_months: march
+    - cold_months: october
+    - cold_months: november
+    - cold_months: december
+  - action: utter_cold_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Great Britan
+  - action: utter_destination_transportation
+  - intent: transportation
+  - action: utter_transportation_type
+  - intent: type
+  - action: utter_type_accomodation
+  - intent: accomodation
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: cold_season
+    entities:
+    - cold_months: febuary
+    - cold_months: january
+    - cold_months: march
+    - cold_months: october
+    - cold_months: november
+    - cold_months: december
+  - action: utter_cold_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: deny
+  - action: utter_end_planning_permission_denied
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: cold_season
+    entities:
+    - cold_months: febuary
+    - cold_months: january
+    - cold_months: march
+    - cold_months: october
+    - cold_months: november
+    - cold_months: december
+  - action: utter_cold_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: may
+    - warm_months: august
+    - warm_months: june
+    - warm_months: july
+    - warm_months: september
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Afghanistan
+    - lookup_destination: Albania
+    - lookup_destination: Algeria
+    - lookup_destination: Andorra
+    - lookup_destination: Angola
+    - lookup_destination: Antigua & Deps
+    - lookup_destination: Argentina
+    - lookup_destination: Armenia
+    - lookup_destination: Australia
+    - lookup_destination: Austria
+    - lookup_destination: Azerbaijan
+    - lookup_destination: Bahamas
+    - lookup_destination: Bahrain
+    - lookup_destination: Bangladesh
+    - lookup_destination: Barbados
+    - lookup_destination: Belarus
+    - lookup_destination: Belgium
+    - lookup_destination: Belize
+    - lookup_destination: Benin
+    - lookup_destination: Bhutan
+    - lookup_destination: Bolivia
+    - lookup_destination: Bosnia Herzegovina
+    - lookup_destination: Botswana
+    - lookup_destination: Brazil
+    - lookup_destination: Brunei
+    - lookup_destination: Bulgaria
+    - lookup_destination: Burkina
+    - lookup_destination: Burundi
+    - lookup_destination: Cambodia
+    - lookup_destination: Cameroon
+    - lookup_destination: Canada
+    - lookup_destination: Cape Verde
+    - lookup_destination: Central African Rep
+    - lookup_destination: Chad
+    - lookup_destination: Chile
+    - lookup_destination: China
+    - lookup_destination: Colombia
+    - lookup_destination: Comoros
+    - lookup_destination: Congo
+    - lookup_destination: Congo
+    - lookup_destination: Costa Rica
+    - lookup_destination: Croatia
+    - lookup_destination: Cuba
+    - lookup_destination: Cyprus
+    - lookup_destination: Czech Republic
+    - lookup_destination: Denmark
+    - lookup_destination: Djibouti
+    - lookup_destination: Dominica
+    - lookup_destination: Dominican Republic
+    - lookup_destination: East Timor
+    - lookup_destination: Ecuador
+    - lookup_destination: Egypt
+    - lookup_destination: El Salvador
+    - lookup_destination: Equatorial Guinea
+    - lookup_destination: Eritrea
+    - lookup_destination: Estonia
+    - lookup_destination: Ethiopia
+    - lookup_destination: Fiji
+    - lookup_destination: Finland
+    - lookup_destination: France
+    - lookup_destination: Gabon
+    - lookup_destination: Gambia
+    - lookup_destination: Georgia
+    - lookup_destination: Germany
+    - lookup_destination: Ghana
+    - lookup_destination: Greece
+    - lookup_destination: Grenada
+    - lookup_destination: Guatemala
+    - lookup_destination: Guinea
+    - lookup_destination: Guinea
+    - lookup_destination: Bissau
+    - lookup_destination: Guyana
+    - lookup_destination: Haiti
+    - lookup_destination: Honduras
+    - lookup_destination: Hungary
+    - lookup_destination: Iceland
+    - lookup_destination: India
+    - lookup_destination: Indonesia
+    - lookup_destination: Iran
+    - lookup_destination: Iraq
+    - lookup_destination: Ireland
+    - lookup_destination: Israel
+    - lookup_destination: Italy
+    - lookup_destination: Ivory Coast
+    - lookup_destination: Jamaica
+    - lookup_destination: Japan
+    - lookup_destination: Jordan
+    - lookup_destination: Kazakhstan
+    - lookup_destination: Kenya
+    - lookup_destination: Kiribati
+    - lookup_destination: Kosovo
+    - lookup_destination: Kuwait
+    - lookup_destination: Kyrgyzstan
+    - lookup_destination: Laos
+    - lookup_destination: Latvia
+    - lookup_destination: Lebanon
+    - lookup_destination: Lesotho
+    - lookup_destination: Liberia
+    - lookup_destination: Libya
+    - lookup_destination: Liechtenstein
+    - lookup_destination: Lithuania
+    - lookup_destination: Luxembourg
+    - lookup_destination: Macedonia
+    - lookup_destination: Madagascar
+    - lookup_destination: Malawi
+    - lookup_destination: Malaysia
+    - lookup_destination: Maldives
+    - lookup_destination: Mali
+    - lookup_destination: Malta
+    - lookup_destination: Marshall Islands
+    - lookup_destination: Mauritania
+    - lookup_destination: Mauritius
+    - lookup_destination: Mexico
+    - lookup_destination: Micronesia
+    - lookup_destination: Moldova
+    - lookup_destination: Monaco
+    - lookup_destination: Mongolia
+    - lookup_destination: Montenegro
+    - lookup_destination: Morocco
+    - lookup_destination: Mozambique
+    - lookup_destination: Myanmar
+    - lookup_destination: Namibia
+    - lookup_destination: Nauru
+    - lookup_destination: Nepal
+    - lookup_destination: Netherlands
+    - lookup_destination: New Zealand
+    - lookup_destination: Nicaragua
+    - lookup_destination: Niger
+    - lookup_destination: Nigeria
+    - lookup_destination: Norway
+    - lookup_destination: Oman
+    - lookup_destination: Pakistan
+    - lookup_destination: Palau
+    - lookup_destination: Panama
+    - lookup_destination: Papua New Guinea
+    - lookup_destination: Paraguay
+    - lookup_destination: Peru
+    - lookup_destination: Philippines
+    - lookup_destination: Poland
+    - lookup_destination: Portugal
+    - lookup_destination: Qatar
+    - lookup_destination: Romania
+    - lookup_destination: Russian Federation
+    - lookup_destination: Rwanda
+    - lookup_destination: St Kitts
+    - lookup_destination: St Lucia
+    - lookup_destination: the Grenadines
+    - lookup_destination: Samoa
+    - lookup_destination: San Marino
+    - lookup_destination: Sao Tome
+    - lookup_destination: Saudi Arabia
+    - lookup_destination: Senegal
+    - lookup_destination: Serbia
+    - lookup_destination: Seychelles
+    - lookup_destination: Sierra Leone
+    - lookup_destination: Singapore
+    - lookup_destination: Slovakia
+    - lookup_destination: Slovenia
+    - lookup_destination: Solomon Islands
+    - lookup_destination: Somalia
+    - lookup_destination: South Africa
+    - lookup_destination: South Sudan
+    - lookup_destination: Spain
+    - lookup_destination: Sri Lanka
+    - lookup_destination: Sudan
+    - lookup_destination: Suriname
+    - lookup_destination: Swaziland
+    - lookup_destination: Sweden
+    - lookup_destination: Switzerland
+    - lookup_destination: Syria
+    - lookup_destination: Taiwan
+    - lookup_destination: Tajikistan
+    - lookup_destination: Tanzania
+    - lookup_destination: Thailand
+    - lookup_destination: Togo
+    - lookup_destination: Tonga
+    - lookup_destination: Trinidad
+    - lookup_destination: Tunisia
+    - lookup_destination: Turkey
+    - lookup_destination: Turkmenistan
+    - lookup_destination: Tuvalu
+    - lookup_destination: Uganda
+    - lookup_destination: Ukraine
+    - lookup_destination: United Arab Emirates
+    - lookup_destination: United Kingdom
+    - lookup_destination: United States
+    - lookup_destination: Uruguay
+    - lookup_destination: Uzbekistan
+    - lookup_destination: Vanuatu
+    - lookup_destination: Vatican City
+    - lookup_destination: Venezuela
+    - lookup_destination: Vietnam
+    - lookup_destination: Yemen
+    - lookup_destination: Zambia
+    - lookup_destination: Zimbabwe
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+    - lookup_transportation: train
+    - lookup_transportation: car
+    - lookup_transportation: bike
+    - lookup_transportation: foot
+    - lookup_transportation: bus
+    - lookup_transportation: ship
+    - lookup_transportation: public transportation
+    - lookup_transportation: charter bus
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: activity
+    - lookup_type: city
+    - lookup_type: road
+    - lookup_type: beach
+    - lookup_type: cruise
+    - lookup_type: camping
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+    - lookup_accomodation: hotel
+    - lookup_accomodation: tent
+    - lookup_accomodation: caravan
+    - lookup_accomodation: cottage
+    - lookup_accomodation: bungalow
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: july
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: Norway
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - type: city
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: hotel
+  - action: utter_accomodation_end_planning
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: warm_season
+    entities:
+    - warm_months: july
+  - action: utter_warm_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: france
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: car
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - type: city
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: hotel
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+  - action: utter_plan_trip
+  - intent: cold_season
+  - action: utter_cold_season_destination
+  - intent: destination
+    entities:
+    - lookup_destination: spain
+  - action: utter_destination_transportation
+  - intent: transportation
+    entities:
+    - lookup_transportation: plane
+  - action: utter_transportation_type
+  - intent: type
+    entities:
+    - lookup_type: beach
+  - action: utter_type_accomodation
+  - intent: accomodation
+    entities:
+    - lookup_accomodation: cottage
+  - action: utter_accomodation_end_planning
+  - intent: affirm
+  - action: utter_end_planning_permission_granted
+  - intent: goodbye
+  - action: utter_goodbye

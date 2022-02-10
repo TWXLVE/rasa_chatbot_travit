@@ -1,0 +1,473 @@
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - servus
+    - Hi
+    - Servus!
+    - Hello
+    - Hello there
+    - buenos dias!
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Bye
+    - thanks, goodbye!
+    - Thanks, goodbye!
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yep please
+    - sure
+    - yep
+    - yup
+    - yes please
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: plan_trip
+  examples: |
+    - i want to plan a trip
+    - i want to plan a vacation
+    - i want to plan my holiday
+    - i wanna plan a trip
+    - i wanna plan a vacation
+    - i wanna plan a holiday
+    - plan a trip for me
+    - plan a vacation for me
+    - plan a vacation
+    - plan a trip
+    - plan trip
+    - plan vacation
+    - i want to go to vacation
+    - i want to make a trip
+    - i want to create a to do list
+    - i would like to plan a trip
+    - I want to plan a trip
+    - plan a trip for me please
+    - i would like to plan a trip please
+    - I would love to plan a holiday please
+- intent: warm_season
+  examples: |
+    - i want to travel when its warm
+    - i wanna travel when its warm
+    - summer
+    - [june] (warm_months)
+    - in [june] (warm_months)
+    - sumer
+    - i want to travel in [august](warm_months)
+    - [july](warm_months)
+    - [august](warm_months)
+    - in [june](warm_months)
+    - in [summer](warm_months)
+    - i want to travel in [summer](warm_months)
+    - in [august](warm_months)
+    - in [july](warm_months)
+    - in [july](warm_months)
+- intent: cold_season
+  examples: |
+    - i want to travel when its cold
+    - i wanna travel when its cold
+    - winter
+    - [january] (cold_months)
+    - in [january] (cold_months)
+    - in winter
+    - january
+    - [febuary](cold_months)
+    - i want to travel in [november](cold_months)
+    - i want to travel in winter
+- intent: accomodation
+  examples: |
+    - im housing in a [hotel] (lookup_accomodation)
+    - i am housing in a [hotel] (lookup_accomodation)
+    - in a [hotel] (lookup_accomodation)
+    - [hotel] (lookup_accomodation)
+    - i want to house in a [hotel](lookup_accomodation) please
+    - i want to house in a [hotel](lookup_accomodation)
+    - i want to house in a [cottage](lookup_accomodation)
+    - i want to house in a holiday home
+    - i want to house in a [tent](lookup_accomodation)
+    - i want to house in a [caravan](lookup_accomodation)
+    - i want to house in a [bungalow](lookup_accomodation)
+    - i want to house in a [bunglow]{"entity": "lookup_accomodation", "value": "bungalow"}
+    - in a [hotel](lookup_accomodation)
+    - i want to house in a [cottage](lookup_accomodation)
+- intent: type
+  examples: |
+    - i want to have a [city] (lookup_type) trip
+    - i wanna have a [city] (lookup_type) trip
+    - [city] (lookup_type) trip
+    - [city] (lookup_type)
+    - i want to have a city trip
+    - [city](type) trip
+    - [beach](type) trip
+    - i want to have an activity trip
+    - [activity](lookup_type) trip
+    - i want to have a [activity](lookup_type) trip
+    - i want to have a [camping](lookup_type) trip
+    - [road](lookup_type) trip
+    - a [beach](lookup_type) trip
+    - [beach](lookup_type) trip
+    - i want to have a [road](lookup_type) trip
+    - a [city](type) trip
+    - a [city](type) trip
+    - i want to go to the [beach](lookup_type)
+- intent: transportation
+  examples: |
+    - I want to go by [train] (lookup_transportation)
+    - I wanna go by [train] (lookup_transportation)
+    - by [train] (lookup_transportation)
+    - [train] (lookup_transportation)
+    - i want to travel by [plane](lookup_transportation)
+    - by [car](lookup_transportation)
+    - by [plane](lookup_transportation)
+    - i want to travel with my bike
+    - by [train](lookup_transportation)
+    - [foot](lookup_transportation)
+    - i want to travel by [car](lookup_transportation)
+    - i want to travel by [ship](lookup_transportation)
+    - i want to travel with my [car](lookup_transportation)
+    - by [car](lookup_transportation)
+    - i want to travel by [plane](lookup_transportation)
+- intent: destination
+  examples: |
+    - i want to go to [Germany] (lookup_destination)
+    - i would like to go to [Germany] (lookup_destination)
+    - i'd like to go to [Germany] (lookup_destination)
+    - id like to go to [Germany] (lookup_destination)
+    - i wanna go to [Germany] (lookup_destination)
+    - to [Germany] (lookup_destination)
+    - [Germany] (lookup_destination)
+    - i want to travel to [australia](lookup_destination)
+    - [Great Britan](lookup_destination)
+    - i want to travel to [france](lookup_destination)
+    - [iceland](lookup_destination)
+    - [India](lookup_destination)
+    - [italy](lookup_destination)
+    - i want to travel to the [maldives](lookup_destination)
+    - [tunisia](lookup_destination)
+    - i want to travel to [russia](lookup_destination)
+    - i want to go to [bulgaria](lookup_destination)
+    - i want to travel to [norway]{"entity": "lookup_destination", "value": "Norway"}
+    - [france](lookup_destination)
+    - i want to go to [spain](lookup_destination)
+- synonym: bungalow
+  examples: |
+    - bunglow
+- synonym: Norway
+  examples: |
+    - norway
+- lookup: warm_months
+  examples: |
+    - may
+    - june
+    - july
+    - august
+    - september
+- lookup: cold_months
+  examples: |
+    - january
+    - febuaray
+    - march
+    - april
+    - october
+    - november
+    - december
+- lookup: lookup_accomodation
+  examples: |
+    - hotel
+    - tent
+    - cottage
+    - holiday home
+    - caravan
+    - bungalow
+- lookup: lookup_type
+  examples: |
+    - city
+    - beach
+    - road
+    - cruise
+    - activity
+    - camping
+- lookup: lookup_transportation
+  examples: |
+    - train
+    - railway
+    - subway
+    - plane
+    - car
+    - bike
+    - bicycle
+    - motorbike
+    - foot
+    - bus
+    - charter bus
+    - public bus
+    - boats
+- lookup: lookup_destination
+  examples: |
+    - Afghanistan
+    - Albania
+    - Algeria
+    - Andorra
+    - Angola
+    - Antigua & Deps
+    - Argentina
+    - Armenia
+    - Australia
+    - Austria
+    - Azerbaijan
+    - Bahamas
+    - Bahrain
+    - Bangladesh
+    - Barbados
+    - Belarus
+    - Belgium
+    - Belize
+    - Benin
+    - Bhutan
+    - Bolivia
+    - Bosnia Herzegovina
+    - Botswana
+    - Brazil
+    - Brunei
+    - Bulgaria
+    - Burkina
+    - Burundi
+    - Cambodia
+    - Cameroon
+    - Canada
+    - Cape Verde
+    - Central African Rep
+    - Chad
+    - Chile
+    - China
+    - Colombia
+    - Comoros
+    - Congo
+    - Congo
+    - Costa Rica
+    - Croatia
+    - Cuba
+    - Cyprus
+    - Czech Republic
+    - Denmark
+    - Djibouti
+    - Dominica
+    - Dominican Republic
+    - East Timor
+    - Ecuador
+    - Egypt
+    - El Salvador
+    - Equatorial Guinea
+    - Eritrea
+    - Estonia
+    - Ethiopia
+    - Fiji
+    - Finland
+    - France
+    - Gabon
+    - Gambia
+    - Georgia
+    - Germany
+    - Ghana
+    - Greece
+    - Grenada
+    - Guatemala
+    - Guinea
+    - Guinea-Bissau
+    - Guyana
+    - Haiti
+    - Honduras
+    - Hungary
+    - Iceland
+    - India
+    - Indonesia
+    - Iran
+    - Iraq
+    - Ireland
+    - Israel
+    - Italy
+    - Ivory Coast
+    - Jamaica
+    - Japan
+    - Jordan
+    - Kazakhstan
+    - Kenya
+    - Kiribati
+    - Kosovo
+    - Kuwait
+    - Kyrgyzstan
+    - Laos
+    - Latvia
+    - Lebanon
+    - Lesotho
+    - Liberia
+    - Libya
+    - Liechtenstein
+    - Lithuania
+    - Luxembourg
+    - Macedonia
+    - Madagascar
+    - Malawi
+    - Malaysia
+    - Maldives
+    - Mali
+    - Malta
+    - Marshall Islands
+    - Mauritania
+    - Mauritius
+    - Mexico
+    - Micronesia
+    - Moldova
+    - Monaco
+    - Mongolia
+    - Montenegro
+    - Morocco
+    - Mozambique
+    - Myanmar
+    - Namibia
+    - Nauru
+    - Nepal
+    - Netherlands
+    - New Zealand
+    - Nicaragua
+    - Niger
+    - Nigeria
+    - Norway
+    - Oman
+    - Pakistan
+    - Palau
+    - Panama
+    - Papua New Guinea
+    - Paraguay
+    - Peru
+    - Philippines
+    - Poland
+    - Portugal
+    - Qatar
+    - Romania
+    - Russian Federation
+    - Rwanda
+    - St Kitts
+    - St Lucia
+    - the Grenadines
+    - Samoa
+    - San Marino
+    - Sao Tome
+    - Saudi Arabia
+    - Senegal
+    - Serbia
+    - Seychelles
+    - Sierra Leone
+    - Singapore
+    - Slovakia
+    - Slovenia
+    - Solomon Islands
+    - Somalia
+    - South Africa
+    - South Sudan
+    - Spain
+    - Sri Lanka
+    - Sudan
+    - Suriname
+    - Swaziland
+    - Sweden
+    - Switzerland
+    - Syria
+    - Taiwan
+    - Tajikistan
+    - Tanzania
+    - Thailand
+    - Togo
+    - Tonga
+    - Trinidad
+    - Tunisia
+    - Turkey
+    - Turkmenistan
+    - Tuvalu
+    - Uganda
+    - Ukraine
+    - United Arab Emirates
+    - United Kingdom
+    - United States
+    - Uruguay
+    - Uzbekistan
+    - Vanuatu
+    - Vatican City
+    - Venezuela
+    - Vietnam
+    - Yemen
+    - Zambia
+    - Zimbabwe

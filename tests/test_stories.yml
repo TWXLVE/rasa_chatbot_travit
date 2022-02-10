@@ -1,0 +1,344 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: happy path 1
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+
+- story: happy path 2
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path 1
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      not really
+    intent: deny
+  - action: utter_goodbye
+
+- story: sad path 3
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      very terrible
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: plan_trip_warm_confirm
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      i want to plan a trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      summer
+    intent: warm_season
+  - action: utter_warm_season_destination
+  - user: |
+      america
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      train
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      road trip
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      cottage
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_end_planning_permission_granted
+  - action: utter_goodbye
+
+- story: plan_trip_warm_confirm2
+  steps:
+  - user: |
+      hey
+    intent: greet
+  - action: utter_greet
+  - user: |
+      plan a trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      august
+    intent: warm_season
+  - action: utter_warm_season_destination
+  - user: |
+      zimbabwe
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      plane
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      city
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      hotel
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      yep
+    intent: affirm
+  - action: utter_end_planning_permission_granted
+  - action: utter_goodbye
+
+- story: plan_trip_warm_confirm3
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      plan trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      i want to travel when its warm
+    intent: warm_season
+  - action: utter_warm_season_destination
+  - user: |
+      france
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      by car
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      beach trip
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      in a tent
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      of course
+    intent: affirm
+  - action: utter_end_planning_permission_granted
+  - action: utter_goodbye
+
+
+- story: plan_trip_cold_confirm
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      i want to plan a trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      winter
+    intent: cold_season
+  - action: utter_cold_season_destination
+  - user: |
+      america
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      train
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      city
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      bungalow
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_end_planning_permission_granted
+  - action: utter_goodbye
+
+- story: plan_trip_cold_confirm2
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      i wanna to plan a trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      january
+    intent: cold_season
+  - action: utter_cold_season_destination
+  - user: |
+      Russia
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      plane
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      city
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      caravan
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_end_planning_permission_granted
+  - action: utter_goodbye
+
+- story: plan_trip_cold_deny
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      plan trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      winter
+    intent: cold_season
+  - action: utter_cold_season_destination
+  - user: |
+      austria
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      bike
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      camping
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      tent
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      nope
+    intent: deny
+  - action: utter_end_planning_permission_denied
+  - action: utter_goodbye
+
+- story: plan_trip_warm_deny
+  steps:
+  - user: |
+      hey
+    intent: greet
+  - action: utter_greet
+  - user: |
+      i would like to plan a trip
+    intent: plan_trip
+  - action: utter_question_season
+  - user: |
+      summer
+    intent: warm_season
+  - action: utter_warm_season_destination
+  - user: |
+      maledives
+    intent: destination
+  - action: utter_destination_transportation
+  - user: |
+      plane
+    intent: transportation
+  - action: utter_transportation_type
+  - user: |
+      beach
+    intent: type
+  - action: utter_type_accomodation
+  - user: |
+      bungalow
+    intent: accomodation
+  - action: utter_accomodation_end_planning
+  - user: |
+      no
+    intent: deny
+  - action: utter_end_planning_permission_denied
+  - action: utter_goodbye
